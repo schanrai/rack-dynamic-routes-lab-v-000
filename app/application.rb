@@ -8,6 +8,11 @@ class Application
 
 
     if req.path.match(/items/)
+      song_title = req.path.split("/items/").last #turn /items/Thing into Thing
+      song = @@songs.find{|s| s.title == song_title}
+
+      resp.write song.artist
+    end
       @@items.each do |item|
         resp.write "#{item}\n"
       end
