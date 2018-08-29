@@ -10,7 +10,7 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last #turn /items/Thing into Thing
        if item = @@items.find{|i| i.name == item_name}
-        resp.write item.artist
+        resp.write item.price
       else
         resp.write "Item not found"
         resp.status = 404
