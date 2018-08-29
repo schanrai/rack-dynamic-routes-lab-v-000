@@ -11,7 +11,7 @@ class Application
       item_name = req.path.split("/items/").last #turn /items/Thing into Thing
       item = @@items.find{|i| i.name == item_name}
 
-      resp.write song.artist
+      resp.write item.price
     end
       @@items.each do |item|
         resp.write "#{item}\n"
