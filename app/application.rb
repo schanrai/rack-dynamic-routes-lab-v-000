@@ -10,13 +10,8 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last #turn /items/Thing into Thing
       item = @@items.find{|i| i.name == item_name}
-
-      resp.write item.price
-    end
-      @@items.each do |item|
-        resp.write "#{item}\n"
-      end
-    elsif req.path.match(/search/)
+      resp.write item.artist
+    else 
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     elsif req.path.match(/cart/)
